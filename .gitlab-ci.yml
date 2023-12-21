@@ -67,4 +67,4 @@ deploy_to_dev:
 
 environment:
   name: deployment
-  url: http://ec2-65-2-181-36.ap-south-1.compute.amazonaws.com
+  url: http://ec2-65-2-181-36.ap-south-1.compute.amazonaws.com:3000

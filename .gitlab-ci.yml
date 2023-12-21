@@ -35,7 +35,7 @@ build_image:
     - shell
     - remote
   script:
-    - docker build -t registry.gitlab.com/abhi_chintu/mynodeapp . .
+    - docker build -t registry.gitlab.com/abhi_chintu/mynodeapp .
 
 push_image:
   stage: build

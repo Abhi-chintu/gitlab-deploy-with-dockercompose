@@ -11,7 +11,10 @@ stages:
 
 run_unit_tests:
   stage: test
-  
+  tags:
+    - ec2
+    - docker
+    - remote
   image: node:16-alpine
   before_script:
     - cd app

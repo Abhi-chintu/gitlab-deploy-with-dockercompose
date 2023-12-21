@@ -5,7 +5,7 @@ workflow:
     - when: always
 
 variables:
-  SERVER_HOST: 13.201.29.51
+  SERVER_HOST: 65.2.181.36
 
 stages:
   - test

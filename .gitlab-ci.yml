@@ -27,3 +27,25 @@ run_unit_tests:
       - app/junit.xml
     reports: 
       junit: app/junit.xml
+
+build_image:
+  stage: build
+  tags:
+    - ec2
+    - shell
+    - remote
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:v1.0 .
+
+push_image:
+  stage: build
+  needs:
+    - build_image
+  tags:
+    - ec2
+    - shell
+    - remote
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY_IMAGE
+  script:
+    - docker push $CI_REGISTRY_IMAGE:v1.0

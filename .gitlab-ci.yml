@@ -5,9 +5,8 @@ workflow:
     - when: always
 
 variables:
-  SERVER_HOST: 13.127.12.254
-  URL: http://ec2-65-2-181-36.ap-south-1.compute.amazonaws.com:3000
-
+  SERVER_HOST: 65.2.181.36
+  URL: ec2-65-2-181-36.ap-south-1.compute.amazonaws.com:3000
 stages:
   - test
   - build
@@ -43,7 +42,7 @@ build_image:
     - export VERSION=$PACKAGE_JSON_VERSION.$CI_PIPELINE_IID
     - echo $VERSION > version-file.txt
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:$VERSION .  # Corrected $APP_VERSION to $VERSION
+    - docker build -t $CI_REGISTRY_IMAGE:$VERSION .  
   artifacts:
     paths:
       - version-file.txt
